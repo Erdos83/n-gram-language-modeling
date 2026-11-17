@@ -50,13 +50,16 @@ This allows the model to use lower-order N-gram statistics when higher-order sta
 Perplexity measures how well a language model predicts a sequence of words. For $T$ predicted tokens, it is defined as:
 
 ```math
-\operatorname{PP}(W)
+\mathrm{PP}(W)
 =
 \exp\left(
 -\frac{1}{T}
 \sum_{i=1}^{T}
-\log P(w_i \mid w_{<i})
+\log P(w_i \mid w_1, \ldots, w_{i-1})
 \right)
+```
+
+Lower perplexity indicates better predictive performance on the evaluation data, when models are compared under the same evaluation conditions.
 ```
 
 Lower perplexity indicates better predictive performance on the evaluation data, when models are compared under the same evaluation conditions.
